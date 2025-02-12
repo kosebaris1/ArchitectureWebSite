@@ -1,0 +1,104 @@
+﻿<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Proje Detayı</title>
+    <style>
+        /* Genel yapı */
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: #f7f7f7;
+            margin: 0;
+            padding: 0;
+            color: #444;
+            line-height: 1.6;
+        }
+
+        /* Konteyner */
+        .container {
+            max-width: 800px;
+            margin: 50px auto;
+            padding: 30px;
+            background: #ffffff;
+            border-radius: 15px;
+            box-shadow: 0 4px 15px black;
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+
+        .container:hover {
+            transform: translateY(-10px);
+                box-shadow: 0 4px 15px black;
+        }
+
+        /* Başlık */
+        h1 {
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: #222;
+            margin-bottom: 20px;
+            text-transform: uppercase;
+        }
+
+        /* Resim */
+        img {
+            width: 100%;
+            height: 400px;
+            object-fit: cover;
+            border-radius: 10px;
+            transition: all 0.3s ease;
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+        }
+
+        img:hover {
+            transform: scale(1.05);
+            box-shadow: 0 20px 30px rgba(0, 0, 0, 0.2);
+        }
+
+        /* Açıklama metni */
+        p {
+            font-size: 1.2rem;
+            color: #666;
+            margin-top: 20px;
+            text-align: justify;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        /* Geri butonu */
+        .back-btn {
+            display: inline-block;
+            margin-top: 30px;
+            padding: 12px 30px;
+            background: #007BFF;
+            color: #fff;
+            text-decoration: none;
+            border-radius: 30px;
+            font-size: 1.1rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            transition: background-color 0.3s ease;
+        }
+
+        .back-btn:hover {
+            background-color: #0056b3;
+        }
+
+        /* Responsive */
+
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <h1>Proje Başlığı</h1>
+        <img src="~/NewFolder/@ViewBag.Resim" alt="Proje Resmi">
+        <p>@ViewBag.Aciklama</p>
+        <a href="/" class="back-btn">Ana Sayfaya Dön</a>
+    </div>
+
+</body>
+</html>

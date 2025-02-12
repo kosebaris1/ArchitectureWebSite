@@ -1,0 +1,374 @@
+﻿/* Genel sıfırlama */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Courier New', Courier, monospace;
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: 'Arial', sans-serif;
+    background-color: rgba(255, 235, 205, 0.637);
+    color: #333;
+}
+
+/* Şeffaf Header */
+header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 20px 40px;
+    background: color black;
+    transition: background 0.4s ease-in-out, backdrop-filter 0.4s ease-in-out;
+    z-index: 1000;
+}
+/* Header başlangıçta şeffaf ve görünür olacak */
+
+/* Scroll olduğunda header efekti */
+.scrolled {
+    background: rgba(42, 42, 42, 0.8); /* Hafif koyu ve opak */
+    backdrop-filter: blur(8px); /* Blur efekti */
+}
+
+/* Menü ve logo her zaman görünür */
+header * {
+    color: white;
+}
+
+
+/* Scroll yapınca header rengi değişsin */
+.scrolled {
+    background: rgba(42, 42, 42, 0.8);
+    backdrop-filter: blur(8px);
+}
+
+/* Logo */
+header .logo-container {
+    display: flex;
+    align-items: center;
+    animation: slideBottom .7s ease forwards;
+}
+
+header .header-title {
+    animation: slideBottom .8s ease forwards;
+}
+
+header img {
+    width: 70px;
+    height: 70px;
+    border-radius: 50%;
+    object-fit: cover;
+    transition: transform 0.3s ease;
+}
+
+    header img:hover {
+        transform: scale(1.1);
+    }
+
+/* Navbar */
+nav ul {
+    display: flex;
+    list-style: none;
+}
+
+    nav ul li {
+        margin: 0 15px;
+    }
+
+        nav ul li a {
+            text-decoration: none;
+            color: white;
+            font-size: 1.2rem;
+            font-weight: bold;
+            padding: 10px 15px;
+            position: relative;
+            transition: color 0.3s ease;
+            animation: slideBottom .9s ease forwards;
+            animation-delay: calc(.2s * var(--i));
+        }
+
+            /* Hover Alt Çizgi Efekti */
+            nav ul li a::after {
+                content: '';
+                position: absolute;
+                left: 50%;
+                bottom: -5px;
+                width: 0;
+                height: 2px;
+                background-color: #2a2a2a;
+                transition: width 0.3s ease, left 0.3s ease;
+            }
+
+            nav ul li a:hover::after {
+                width: 100%;
+                left: 0;
+            }
+
+            /* Hover ile renk değişimi */
+            nav ul li a:hover {
+                color: blanchedalmond;
+                text-decoration: none;
+                background-color: black;
+                opacity: 0.6;
+                border-radius: 15px;
+            }
+
+/* Ana Sayfa */
+#home {
+    background: url("../NewFolder/homee.jpg") no-repeat center center/cover;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: white;
+    text-align: center;
+    position: relative;
+    box-shadow: 10px 10px 10px rgba(0, 0, 0, 0.642);
+    border-radius: 9px;
+}
+
+/* Hafif opak arka plan */
+.home-overlay {
+    background: rgba(0, 0, 0, 0.6);
+    padding: 40px;
+    border-radius: 10px;
+    animation: slideBottom .9s ease forwards;
+}
+
+/* Bölümler */
+#about, #projects, #contact {
+    padding: 80px 20px;
+    text-align: center;
+}
+
+    /* Başlık */
+    #about h2, #projects h2, #contact h2 {
+        font-size: 2.5rem;
+        margin-bottom: 20px;
+    }
+
+/* Projeler Grid */
+.project-gallery {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 20px;
+}
+
+/* Proje Görselleri */
+.project-img {
+    width: 100%;
+    height: 300px; /* Yüksekliği sabitleyin */
+    object-fit: cover; /* Resmin kesilmesini sağlar ve kutuya uyumlu hale gelir */
+    border-radius: 10px;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+    .project-img:hover {
+        transform: scale(1.05);
+        box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
+    }
+
+
+/* İletişim Formu */
+form {
+    max-width: 600px;
+    margin: 0 auto;
+    background: white;
+    padding: 30px;
+    border-radius: 10px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+    /* Form Elemanları */
+    form input, form textarea {
+        width: 100%;
+        padding: 12px;
+        margin-bottom: 15px;
+        border: 1px solid #ccc;
+        border-radius: 8px;
+        font-size: 1rem;
+    }
+
+    /* Form Butonu */
+    form button {
+        width: 100%;
+        padding: 15px;
+        background: linear-gradient(45deg, #e74c3c, #c0392b);
+        color: white;
+        border: none;
+        border-radius: 8px;
+        font-size: 1.1rem;
+        cursor: pointer;
+        transition: all 0.3s ease;
+    }
+
+        form button:hover {
+            background: linear-gradient(45deg, #c0392b, #e74c3c);
+            transform: scale(1.05);
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+        }
+
+/* Footer */
+footer {
+    background-color: #2a2a2a;
+    color: white;
+    text-align: center;
+    padding: 20px;
+}
+
+/* Scroll Header Değiştirme */
+
+@keyframes slideBottom {
+    0% {
+        transform: translateY(-100px);
+        opacity: 0;
+    }
+
+    100% {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+
+#about {
+    background-color: grey-100;
+    max-width: 1300px;
+    margin: 50px auto; /* Üstten ve alttan 50px, ortalamak için otomatik */
+    padding: 40px;
+    border-radius: 10px; /* Köşeleri yuvarlat */
+    box-shadow: 0 4px 15px black; /* Hafif gölge efekti */
+    text-align: center;
+}
+
+    #about h2 {
+        font-size: 2rem;
+        color: #333;
+        margin-bottom: 20px;
+        font-weight: bold;
+    }
+
+    #about p {
+        font-size: 1.1rem;
+        color: #555;
+        line-height: 1.8;
+        text-align: justify;
+    }
+
+/* Fade-in animasyonu */
+.fade-in {
+    opacity: 0;
+    transform: translateY(30px);
+    animation: fadeInAnimation 1s ease-out forwards;
+}
+
+@keyframes fadeInAnimation {
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+#contact {
+    background-color: #f4f4f9;
+    padding: 40px;
+    border-radius: 10px;
+    max-width: 800px;
+    margin: 0 auto;
+    text-align: center;
+    box-shadow: 0px 7px 15px black;
+    margin-bottom: 30px;
+}
+
+    #contact h2 {
+        font-size: 2.5rem;
+        margin-bottom: 30px;
+        color: #333;
+    }
+
+form {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    box-shadow: 0px 7px 15px brown;
+}
+
+.form-group {
+    text-align: left;
+}
+
+label {
+    font-size: 1.1rem;
+    font-weight: 600;
+    color: #555;
+}
+
+input, textarea {
+    width: 100%;
+    padding: 10px;
+    border: 2px solid #ddd;
+    border-radius: 5px;
+    font-size: 1rem;
+    color: #333;
+    transition: all 0.3s ease;
+}
+
+    input:focus, textarea:focus {
+        border-color: #007bff;
+        outline: none;
+    }
+
+textarea {
+    resize: vertical;
+    height: 150px;
+}
+
+button {
+    padding: 12px 25px;
+    background-color: #007bff;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    font-size: 1.1rem;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+    button:hover {
+        background-color: #0056b3;
+    }
+
+.social-links {
+    margin-top: 30px;
+}
+
+    .social-links a {
+        margin: 0 15px;
+        font-size: 2rem;
+        color: #333;
+        transition: color 0.3s ease;
+    }
+
+        .social-links a:hover {
+            color: #007bff;
+        }
+
+.bi-instagram {
+    color: #E1306C;
+}
+
+.bi-whatsapp {
+    color: #25D366;
+}
+
+.bi-twitter {
+    color: #1DA1F2;
+}
+
+footer {
+    margin-top: 30px;
+}
